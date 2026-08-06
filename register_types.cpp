@@ -1,19 +1,19 @@
 #include "register_types.h"
 #include "core/object/class_db.h"
-#include "ast_dumper.h"
+#include "ast_debugger.h"
 
 #ifdef TOOLS_ENABLED
 #include "editor/editor_node.h"
-#include "ast_dumper_plugin.h"
+#include "ast_debugger_plugin.h"
 
 static void _editor_init() {
-    EditorNode::get_singleton()->add_editor_plugin(memnew(ASTDumperPlugin));
+    EditorNode::get_singleton()->add_editor_plugin(memnew(ASTDebuggerPlugin));
 }
 #endif
 
-void initialize_ast_dumper_module(ModuleInitializationLevel p_level) {
+void initialize_ast_debugger_module(ModuleInitializationLevel p_level) {
     if (p_level == MODULE_INITIALIZATION_LEVEL_SCENE) {
-        ClassDB::register_class<ASTDumper>();
+        ClassDB::register_class<ASTDebugger>();
     }
 
     if (p_level == MODULE_INITIALIZATION_LEVEL_EDITOR) {
@@ -23,5 +23,5 @@ void initialize_ast_dumper_module(ModuleInitializationLevel p_level) {
     }
 }
 
-void uninitialize_ast_dumper_module(ModuleInitializationLevel p_level) {
+void uninitialize_ast_debugger_module(ModuleInitializationLevel p_level) {
 }

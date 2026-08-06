@@ -1,4 +1,4 @@
-def can_build() -> bool:
+def can_build(env, platform) -> bool:
     return True
 
 def configure(env):
